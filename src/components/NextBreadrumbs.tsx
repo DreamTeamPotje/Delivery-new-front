@@ -23,12 +23,12 @@ export default function NextBreadrumbs({ homeName, capitalizeLinks, children, se
                     <Typography color="text.primary">
                         {homeName}
                     </Typography> :
-                    // <Link href='/' style={{textDecoration: 'none'}}>
-                    //     {homeName}
-                    // </Link>
-                    <Typography color="text.primary">
+                    <Link href='/' style={{textDecoration: 'none'}}>
                         {homeName}
-                    </Typography>
+                    </Link>
+                    // <Typography color="text.primary">
+                    //     {homeName}
+                    // </Typography>
                 }
                 {
                     pathNames.map((link, index) => {
@@ -42,12 +42,12 @@ export default function NextBreadrumbs({ homeName, capitalizeLinks, children, se
                                             {itemLink}
                                         </Typography>
                                         :
-                                        // <Link href={href} style={{ textDecoration: 'none' }}>
-                                        //     {itemLink}
-                                        // </Link>
-                                        <Typography color="text.primary">
+                                        <Link href={href} style={{ textDecoration: 'none' }}>
                                             {itemLink}
-                                        </Typography>
+                                        </Link>
+                                        // <Typography color="text.primary">
+                                        //     {itemLink}
+                                        // </Typography>
                                 }
                                 {/* {pathNames.length !== index + 1} */}
                             </div>

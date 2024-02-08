@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { styled } from '@mui/material/styles';
 import { toast } from "react-toastify";
 import { NumericFormat } from "react-number-format";
@@ -93,7 +93,7 @@ export default function NovoProduto() {
         }
     }
 
-    const getCategorias = async () => {
+    const getCategorias = useCallback(async () => {
         await api.get('/categoria/all', {
             headers: {
                 Authorization: `Bearer ${login?.access_token}`,
@@ -105,8 +105,7 @@ export default function NovoProduto() {
             .catch((err) => {
                 setCategorias([{ id: 0, nameCategoria: 'Erro ao carregar' }]);
             })
-    }
-
+    }, [login])
     // função para cadastro de formulário
     async function handleSubmit(e: React.SyntheticEvent) {
         e.preventDefault();
@@ -141,7 +140,7 @@ export default function NovoProduto() {
 
     useEffect(() => {
         getCategorias();
-    })
+    }, [getCategorias])
 
     const VisuallyHiddenInput = styled('input')({
         clip: 'rect(0 0 0 0)',

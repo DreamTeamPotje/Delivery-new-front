@@ -25,7 +25,11 @@ export default function Layout(props: LayoutProps) {
     //     }
     // });
 
-    const navItems = [{text: 'produtos', link: 'produtos'}, {text: 'usuarios', link:'usuarios'}];
+    const navItems = [
+        { text: 'produtos', link: 'produtos' },
+        { text: 'usuarios', link: 'usuarios' },
+        { text: 'pedidos', link: 'pedidos' }
+    ];
 
     return (
         <>
@@ -36,9 +40,9 @@ export default function Layout(props: LayoutProps) {
                     <nav>
                         <MenuVertical titulo='Delivery' handleDrawerToggle={handleDrawerToggle} mobileOpen={mobileOpen} navItems={navItems} />
                     </nav>
-                    <Box component="main" sx={{width: '100%'}}>
+                    <Box component="main" sx={{ width: '100%' }}>
                         <NextBreadrumbs separator="|" homeName='Home' capitalizeLinks />
-                            {props.children}
+                        {props.children}
                     </Box>
                 </Box>
             </ForceAuth>

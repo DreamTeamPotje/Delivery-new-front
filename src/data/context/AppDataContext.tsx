@@ -46,24 +46,6 @@ export function AppProvider(props: ContextProps) {
         }
     }, [])
 
-    // async function signIn(login: string, senha: string) {
-    //     setLoadingAuth(true);
-    //     await api.post<Data>('/login', {
-    //         login: login,
-    //         password: senha
-    //     })
-    //         .then((res) => {
-    //             storageUser(res.data)
-    //             setUser(res.data);
-    //             setLoadingAuth(false);
-    //             toast.success(`Bem vindo ${res.data.user.login}`);
-    //         })
-    //         .catch((err) => {
-    //             setLoadingAuth(false);
-    //             toast.error("Erro ao tentar logar no sistema");
-    //         });
-    // }
-
     async function signIn(username: string, password: string) {
         setLoadingAuth(true);
         await api
@@ -97,7 +79,6 @@ export function AppProvider(props: ContextProps) {
                 "Verifique sua conexão de rede, ou servidor está offline."
               );
             }
-            console.log(err.code);
             setLoadingAuth(false);
           });
       }

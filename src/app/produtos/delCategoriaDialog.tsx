@@ -27,7 +27,7 @@ export default function AlertDialog(props: cofirmProps) {
     })
       .then((res) => {
         toast.success('Categoria excluida com sucesso.')
-        props.getCategorias();
+        props.getCategorias()
       })
       .catch((err) => {
         toast.error('Não foi excluir a categoria.')

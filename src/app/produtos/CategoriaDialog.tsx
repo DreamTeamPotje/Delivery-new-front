@@ -141,7 +141,7 @@ export default function CategoriaDialog(props: categoriaProps) {
                   }>
                     <ListItemText>{item.nameCategoria}</ListItemText>
                   </ListItem>
-                  {categorias.length - 1 === index ? ('') : (<Divider component="li" light />)}
+                  {categorias.length - 1 === index ? ('') : (<Divider component="li"/>)}
                 </div>
               ))}
             </List>

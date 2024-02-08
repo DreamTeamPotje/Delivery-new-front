@@ -51,7 +51,7 @@ const first_values = {
     descricao_produto: ''
 }
 
-export default function EditarProduto({ params }: { params: { id: string } }) {
+export default function EditarProduto({ params }: { params: { editar: string } }) {
     const [select, setSelect] = useState('');
     const [imagem, setImagem] = useState<fileImagem | null>(null);
     const [checked, setChecked] = useState(false);
@@ -135,7 +135,7 @@ export default function EditarProduto({ params }: { params: { id: string } }) {
 
     const getProdutos = useCallback(()=>{
         setLoad(true);
-        api.get<produto>(`/produto/findById/${params.id}`, {
+        api.get<produto>(`/produto/findById/${params.editar}`, {
             headers: {
                 Authorization: `Bearer ${login?.access_token}`,
             }
@@ -157,7 +157,7 @@ export default function EditarProduto({ params }: { params: { id: string } }) {
                 toast.error('Erro ao obter dados do produto.');
                 setLoad(false);
             })
-    },[login, params.id])
+    },[login, params.editar])
 
     useEffect(() => {
         getCategorias();
@@ -171,7 +171,7 @@ export default function EditarProduto({ params }: { params: { id: string } }) {
             .post(
                 "/produto/replace",
                 {
-                    id: params.id,
+                    id: params.editar,
                     produtoAtivo: checked,
                     nome: valueInput.nome_produto,
                     categoriaEnum: select,

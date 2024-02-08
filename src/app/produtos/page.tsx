@@ -201,7 +201,7 @@ export default function Produtos() {
                                         {
                                             <>
                                                 <IconButton color={"success"} aria-label="delete">
-                                                    <Link href={`/produtos/editar-produto/${item.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
+                                                    <Link href={`/produtos/${item.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
                                                         <Edit />
                                                     </Link>
                                                 </IconButton>
